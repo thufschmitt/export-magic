@@ -6,6 +6,8 @@
     version = builtins.readFile ./.version;
   in {
     packages.x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.runCommand "text" {} ''
+      echo ${./.version}
+      cat ${./.version}
       echo "${version}"
     '';
   };
